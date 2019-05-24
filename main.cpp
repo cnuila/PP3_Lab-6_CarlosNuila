@@ -41,7 +41,7 @@ int main()
                  << "3)Ver linea de Produccion" << endl
                  << "4)Ver listado de Carros" << endl
                  << "5)Avanzar ciclo de linea de produccion" << endl
-                 << "6)Salir"
+                 << "6)Salir" <<endl
                  << "Ingrese su opcion: ";
             cin >> opcion;
         }
@@ -80,7 +80,7 @@ int main()
             //creacion de motor
             string electrico = "";
             int temp2 = -1;
-            while (temp < 0 || temp > 1)
+            while (temp2 < 0 || temp2 > 1)
             {
                 cout << "Es electrico[0] o no[1]: ";
                 cin >> temp2;
@@ -128,12 +128,29 @@ int main()
         }
         case 3:
         {
-            for (int i = 0; i < carrosLineaproduccion.size(); i++)
-            {
-                cout << i + 1 << ")" << carrosLineaproduccion[i]->toString() << endl;
+            if (!carrosLineaproduccion.empty()){
+                for (int i = 0; i < carrosLineaproduccion.size(); i++)
+                {
+                    cout << i + 1 << ")" << carrosLineaproduccion[i]->toString() << endl;
+                }
+            } else{
+                cout << "No hay carros en la linea de produccion"<<endl;
             }
+            
         }
         case 4:
+        {
+            if (!carrosFinalizados.empty()){
+                for (int i = 0; i < carrosFinalizados.size(); i++)
+                {
+                    cout << i + 1 << ")" << carrosFinalizados[i]->toString() << endl;
+                }
+            } else {
+                cout << "No hay carros finalizados" <<endl;
+            }
+            break;
+        }
+        case 5:
         {
             for (int i = 0; i < size; i++)
             {
@@ -155,7 +172,7 @@ int main()
                             }
                         }
                     }
-                    carrosLineaproduccion[carrosLineaproduccion.size() - 1]->setNumModelo(prototipos[i]->getNumModelo());
+                    carrosLineaproduccion[carrosLineaproduccion.size() - 1]->setNumModelo(numModelo);
                     for (int j = 4; j > 1; j++)
                     {
                         if (matrix[i][j - 1] != ' ')
@@ -173,18 +190,37 @@ int main()
                             if (carrosLineaproduccion[j]->getMotor() == NULL){
                                 carrosLineaproduccion[j]->setMotor(prototipos[i]->getMotor());
                             } else {
-                                if (carrosLineaproduccion[j]->getPintura == NULL){
+                                if (carrosLineaproduccion[j]->getPintura() == NULL){
                                     carrosLineaproduccion[j]->setPintura(prototipos[i]->getPintura());
+                                } else {
+                                    carrosFinalizados.push_back(carrosLineaproduccion[j]);
+                                    carrosLineaproduccion.erase(carrosLineaproduccion.begin()+j-1);
                                 }
                             }
                         }
                     }
                 }
             }
+            break;
         }
         }
         cout << "¿Desea volver a hacerlo[s/n]?: ";
         cin >> respuesta;
+    }
+    for (int i = 0; i < carrosFinalizados.size();i++){
+        if (!carrosFinalizados.empty()){
+            delete carrosFinalizados[i];
+        }
+    }
+    for (int i = 0; i < prototipos.size();i++){
+        if (!prototipos.empty()){
+            delete prototipos[i];
+        }
+    }
+    for (int i = 0; i < carrosLineaproduccion.size();i++){
+        if (!carrosLineaproduccion.empty()){
+            delete carrosLineaproduccion[i];
+        }
     }
     freeMatrix(matrix, size);
     return 0;
