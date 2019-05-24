@@ -1,6 +1,9 @@
 #ifndef CARRO_H
 #define CARRO_H
 #include <string>
+#include "Chasis.h"
+#include "Motor.h"
+#include "Pintura.h"
 using std::string;
 
 class Carro{

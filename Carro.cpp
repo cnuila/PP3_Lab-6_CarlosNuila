@@ -55,5 +55,5 @@ void Carro::setPintura(Pintura pint){
 string Carro::toString(){
     string numModel = "";
     numModel = to_string(numModelo);
-    return "Modelo: "+modelo+numModel;
+    return "Modelo: "+modelo+numModel+chasis.toString()+motor.toString()+pintura.toString();
 }

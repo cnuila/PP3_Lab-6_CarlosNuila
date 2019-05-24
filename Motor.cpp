@@ -24,5 +24,5 @@ void Motor::setConfiguracion(string config){
 }
 
 string Motor::toString(){
-    return "Motor: /nEs Electrico: "+electrico+" Configuracion: "+configuracion;
+    return " Motor: /nEs Electrico: "+electrico+" Configuracion: "+configuracion;
 }
