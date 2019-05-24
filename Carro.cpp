@@ -2,7 +2,6 @@
 #include "Chasis.h"
 #include "Motor.h"
 #include "Pintura.h"
-#include <sstream>
 using namespace std;
 
 Carro::Carro(){
@@ -54,5 +53,7 @@ void Carro::setPintura(Pintura pint){
 }
 
 string Carro::toString(){
-    return "Modelo: "+modelo+str(numModelo);
+    string numModel = "";
+    numModel = to_string(numModelo);
+    return "Modelo: "+modelo+numModel;
 }
