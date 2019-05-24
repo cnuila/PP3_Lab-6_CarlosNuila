@@ -7,14 +7,23 @@ using namespace std;
 Carro::Carro(){
     modelo = "";
     numModelo = 0;
+    chasis = NULL;
+    motor = NULL;
+    pintura = NULL;
 }
 
-Carro::Carro(string mod,string numMod,Chasis cha,Motor mot,Pintura pint){
+Carro::Carro(string mod,int numMod,Chasis* cha,Motor* mot,Pintura* pint){
     modelo = mod;
     numModelo = numModelo;
     chasis = cha;
     motor = mot;
     pintura = pint;
+}
+
+Carro::~Carro(){
+    delete motor;
+    delete chasis;
+    delete pintura;
 }
 
 string Carro::getModelo(){
@@ -31,29 +40,29 @@ void Carro::setNumModelo(int numMod){
     numModelo = numMod;
 }
 
-Chasis Carro::getChasis(){
+Chasis* Carro::getChasis(){
     return chasis;
 }
-void Carro::setChasis(Chasis cha){
+void Carro::setChasis(Chasis* cha){
     chasis = cha;
 }
 
-Motor Carro::getMotor(){
+Motor* Carro::getMotor(){
     return motor;
 }
-void Carro::setMotor(Motor mot){
+void Carro::setMotor(Motor* mot){
     motor = mot;
 }
 
-Pintura Carro::getPintura(){
+Pintura* Carro::getPintura(){
     return pintura;
 }
-void Carro::setPintura(Pintura pint){
+void Carro::setPintura(Pintura* pint){
     pintura = pint;
 }
 
 string Carro::toString(){
     string numModel = "";
     numModel = to_string(numModelo);
-    return "Modelo: "+modelo+numModel+chasis.toString()+motor.toString()+pintura.toString();
+    return "Modelo: "+modelo+numModel+chasis->toString()+motor->toString()+pintura->toString();
 }
