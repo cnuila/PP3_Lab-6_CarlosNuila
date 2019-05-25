@@ -29,22 +29,19 @@ int main()
     vector<Carro *> prototipos;
     vector<Carro *> carrosFinalizados;
     vector<Carro *> carrosLineaproduccion;
-    char respuesta = 'S';
-    while (respuesta == 'S' || respuesta == 's')
+    int opcion = 0;
+    bool sigue = true;
+    while (sigue)
     {
-        int opcion = 0;
-        while (opcion <= 0 || opcion > 6)
-        {
-            cout << "Menu" << endl
-                 << "1)Agregar Linea de Produccion" << endl
-                 << "2)Ver Matriz de Produccion" << endl
-                 << "3)Ver linea de Produccion" << endl
-                 << "4)Ver listado de Carros" << endl
-                 << "5)Avanzar ciclo de linea de produccion" << endl
-                 << "6)Salir" <<endl
-                 << "Ingrese su opcion: ";
-            cin >> opcion;
-        }
+        cout << "Menu" << endl
+             << "1)Agregar Linea de Produccion" << endl
+             << "2)Ver Matriz de Produccion" << endl
+             << "3)Ver linea de Produccion" << endl
+             << "4)Ver listado de Carros" << endl
+             << "5)Avanzar ciclo de linea de produccion" << endl
+             << "6)Salir" << endl
+             << "Ingrese su opcion: ";
+        cin >> opcion;
         switch (opcion)
         {
         case 1:
@@ -128,25 +125,30 @@ int main()
         }
         case 3:
         {
-            if (!carrosLineaproduccion.empty()){
+            if (!carrosLineaproduccion.empty())
+            {
                 for (int i = 0; i < carrosLineaproduccion.size(); i++)
                 {
                     cout << i + 1 << ")" << carrosLineaproduccion[i]->toString() << endl;
                 }
-            } else{
-                cout << "No hay carros en la linea de produccion"<<endl;
             }
-            
+            else
+            {
+                cout << "No hay carros en la linea de produccion" << endl;
+            }
         }
         case 4:
         {
-            if (!carrosFinalizados.empty()){
+            if (!carrosFinalizados.empty())
+            {
                 for (int i = 0; i < carrosFinalizados.size(); i++)
                 {
                     cout << i + 1 << ")" << carrosFinalizados[i]->toString() << endl;
                 }
-            } else {
-                cout << "No hay carros finalizados" <<endl;
+            }
+            else
+            {
+                cout << "No hay carros finalizados" << endl;
             }
             break;
         }
@@ -186,15 +188,23 @@ int main()
                         if (carrosLineaproduccion[j]->getChasis() == NULL)
                         {
                             carrosLineaproduccion[j]->setChasis(prototipos[i]->getChasis());
-                        } else {
-                            if (carrosLineaproduccion[j]->getMotor() == NULL){
+                        }
+                        else
+                        {
+                            if (carrosLineaproduccion[j]->getMotor() == NULL)
+                            {
                                 carrosLineaproduccion[j]->setMotor(prototipos[i]->getMotor());
-                            } else {
-                                if (carrosLineaproduccion[j]->getPintura() == NULL){
+                            }
+                            else
+                            {
+                                if (carrosLineaproduccion[j]->getPintura() == NULL)
+                                {
                                     carrosLineaproduccion[j]->setPintura(prototipos[i]->getPintura());
-                                } else {
+                                }
+                                else
+                                {
                                     carrosFinalizados.push_back(carrosLineaproduccion[j]);
-                                    carrosLineaproduccion.erase(carrosLineaproduccion.begin()+j-1);
+                                    carrosLineaproduccion.erase(carrosLineaproduccion.begin() + j - 1);
                                 }
                             }
                         }
@@ -203,22 +213,30 @@ int main()
             }
             break;
         }
+        case 6:
+        {
+            sigue = false;
         }
-        cout << "¿Desea volver a hacerlo[s/n]?: ";
-        cin >> respuesta;
+        }
     }
-    for (int i = 0; i < carrosFinalizados.size();i++){
-        if (!carrosFinalizados.empty()){
+    for (int i = 0; i < carrosFinalizados.size(); i++)
+    {
+        if (!carrosFinalizados.empty())
+        {
             delete carrosFinalizados[i];
         }
     }
-    for (int i = 0; i < prototipos.size();i++){
-        if (!prototipos.empty()){
+    for (int i = 0; i < prototipos.size(); i++)
+    {
+        if (!prototipos.empty())
+        {
             delete prototipos[i];
         }
     }
-    for (int i = 0; i < carrosLineaproduccion.size();i++){
-        if (!carrosLineaproduccion.empty()){
+    for (int i = 0; i < carrosLineaproduccion.size(); i++)
+    {
+        if (!carrosLineaproduccion.empty())
+        {
             delete carrosLineaproduccion[i];
         }
     }
