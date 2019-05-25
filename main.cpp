@@ -178,12 +178,12 @@ int main()
                     }
                     
                     carrosLineaproduccion[carrosLineaproduccion.size() - 1]->setNumModelo(numModelo);
-                    for (int j = 4; j > 1; j++)
+                    for (int j = 4; j > 1; j--)
                     {
                         if (matrix[i][j - 1] != ' ')
                         {
                             matrix[i][j] = 'C';
-                            //cout << matrix[i][j] << "  Dwdsadsa"; 
+                            cout << matrix[i][j] << " DSaadsdadsa";
                             break;
                         }
                     }
