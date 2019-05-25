@@ -162,7 +162,7 @@ int main()
                 {
                     carrosLineaproduccion.push_back(new Carro());
                     carrosLineaproduccion[carrosLineaproduccion.size() - 1]->setModelo(prototipos[i]->getModelo());
-                    int numModelo = 0;
+                    int numModelo = -1;
                     for (int j = 0; j < carrosLineaproduccion.size(); j++)
                     {
                         if (!carrosLineaproduccion.empty())
@@ -176,6 +176,7 @@ int main()
                             }
                         }
                     }
+                    
                     carrosLineaproduccion[carrosLineaproduccion.size() - 1]->setNumModelo(numModelo);
                     for (int j = 4; j > 1; j++)
                     {
