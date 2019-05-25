@@ -129,7 +129,6 @@ int main()
             {
                 for (int i = 0; i < carrosLineaproduccion.size(); i++)
                 {
-                    cout << "i = " << i << endl;
                     cout << i + 1 << ")" << carrosLineaproduccion[i]->toString() << endl;
                 }
             }
@@ -180,13 +179,9 @@ int main()
                     carrosLineaproduccion[carrosLineaproduccion.size() - 1]->setNumModelo(numModelo);
                     for (int j = 4; j >= 1; j--)
                     {
-                        //cout << "[" <<matrix[j][z] << "]"<<endl;
-                        //printMatrix(matrix,size);
                         if (matrix[i][j-1] != ' ')
                         {
-                            cout << "entra" << endl;
                             matrix[i][j] = 'C';
-                            //cout << matrix[j][z] << " DSaadsdadsa";
                             break;
                         }
                     }
