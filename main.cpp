@@ -178,15 +178,19 @@ int main()
                     }
                     
                     carrosLineaproduccion[carrosLineaproduccion.size() - 1]->setNumModelo(numModelo);
-                    for (int j = 4; j > 1; j--)
-                    {
-                        if (matrix[i][j - 1] != ' ')
+                    for (int j = 0; j < size; j++){
+                        for (int z = 4; z > 1; z--)
                         {
-                            matrix[i][j] = 'C';
-                            cout << matrix[i][j] << " DSaadsdadsa";
-                            break;
+                            //cout << "[" <<matrix[j][z] << "]"<<endl;
+                            if (matrix[j][z - 1] != ' ')
+                            {
+                                matrix[j][z] = 'C';
+                                //cout << matrix[j][z] << " DSaadsdadsa";
+                                break;
+                            }
                         }
                     }
+                    
                     for (int j = 0; j < carrosLineaproduccion.size(); j++)
                     {
                         if (carrosLineaproduccion[j]->getChasis() == NULL)

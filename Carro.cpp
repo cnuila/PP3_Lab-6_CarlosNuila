@@ -65,10 +65,10 @@ string Carro::toString(){
     string numModel = "";
     numModel = to_string(numModelo);
     if (chasis != NULL){
+        if (motor != NULL){
+            return "Modelo: "+modelo+numModel+chasis->toString()+motor->toString();
+        }
         return "Modelo: "+modelo+numModel+chasis->toString();
-    }
-    if (motor != NULL){
-        return "Modelo: "+modelo+numModel+chasis->toString()+motor->toString();
     }
     return "Modelo: "+modelo+numModel+chasis->toString()+motor->toString()+pintura->toString();
 }
