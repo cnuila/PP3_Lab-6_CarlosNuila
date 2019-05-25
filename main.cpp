@@ -129,7 +129,7 @@ int main()
             {
                 for (int i = 0; i < carrosLineaproduccion.size(); i++)
                 {
-                    cout << "i = " << i <<endl;
+                    cout << "i = " << i << endl;
                     cout << i + 1 << ")" << carrosLineaproduccion[i]->toString() << endl;
                 }
             }
@@ -171,26 +171,25 @@ int main()
                             {
                                 if (numModelo < carrosLineaproduccion[j]->getNumModelo())
                                 {
-                                    numModelo = carrosLineaproduccion[j]->getNumModelo()+1;
+                                    numModelo = carrosLineaproduccion[j]->getNumModelo() + 1;
                                 }
                             }
                         }
                     }
-                    
+
                     carrosLineaproduccion[carrosLineaproduccion.size() - 1]->setNumModelo(numModelo);
-                    for (int j = 0; j < size; j++){
-                        for (int z = 4; z > 1; z--)
+                    for (int j = 4; j >= 1; j--)
+                    {
+                        //cout << "[" <<matrix[j][z] << "]"<<endl;
+                        //printMatrix(matrix,size);
+                        if (matrix[i][j-1] != ' ')
                         {
-                            //cout << "[" <<matrix[j][z] << "]"<<endl;
-                            if (matrix[j][z - 1] != ' ')
-                            {
-                                matrix[j][z] = 'C';
-                                //cout << matrix[j][z] << " DSaadsdadsa";
-                                break;
-                            }
+                            cout << "entra" << endl;
+                            matrix[i][j] = 'C';
+                            //cout << matrix[j][z] << " DSaadsdadsa";
+                            break;
                         }
                     }
-                    
                     for (int j = 0; j < carrosLineaproduccion.size(); j++)
                     {
                         if (carrosLineaproduccion[j]->getChasis() == NULL)
