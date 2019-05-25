@@ -25,5 +25,5 @@ void Chasis::setTransmision(string trans){
 }
 
 string Chasis::toString(){
-    return " Chasis: /nTipo de Rueda: "+tipoRueda+" Transmision: "+transmision;
+    return " Chasis:\nTipo de Rueda: "+tipoRueda+" Transmision: "+transmision;
 }

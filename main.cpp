@@ -129,6 +129,7 @@ int main()
             {
                 for (int i = 0; i < carrosLineaproduccion.size(); i++)
                 {
+                    cout << "i = " << i <<endl;
                     cout << i + 1 << ")" << carrosLineaproduccion[i]->toString() << endl;
                 }
             }
@@ -136,6 +137,7 @@ int main()
             {
                 cout << "No hay carros en la linea de produccion" << endl;
             }
+            break;
         }
         case 4:
         {
@@ -154,7 +156,7 @@ int main()
         }
         case 5:
         {
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < prototipos.size(); i++)
             {
                 if (matrix[i][0] == 'P')
                 {
@@ -169,7 +171,7 @@ int main()
                             {
                                 if (numModelo < carrosLineaproduccion[j]->getNumModelo())
                                 {
-                                    numModelo = carrosLineaproduccion[j]->getNumModelo();
+                                    numModelo = carrosLineaproduccion[j]->getNumModelo()+1;
                                 }
                             }
                         }
@@ -180,6 +182,7 @@ int main()
                         if (matrix[i][j - 1] != ' ')
                         {
                             matrix[i][j] = 'C';
+                            //cout << matrix[i][j] << "  Dwdsadsa"; 
                             break;
                         }
                     }
